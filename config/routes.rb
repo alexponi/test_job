@@ -1,17 +1,18 @@
 SampleApp::Application.routes.draw do
-  #root to: 'calendar#index'
+  resources :events  #, only: [:create, :destroy]
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
   root to: 'static_pages#home'
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/eventedit',  to: 'events#new'
-  #root to: 'static_pages#home'
+  match '/eventnew',  to: 'events#new'
   
+  #root to: 'static_pages#home'
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
