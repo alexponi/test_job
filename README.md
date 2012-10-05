@@ -1,3 +1,3 @@
 # Test job
 
-This is the test job by Alexander Ponikarovsky
+This is a test job by Alexander Ponikarovsky
