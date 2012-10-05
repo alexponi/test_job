@@ -13,8 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20121005045104) do
 
-# Could not dump table "events" because of following StandardError
-#   Unknown type 'color' for column 'color'
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer  "user_id"
+    t.integer  "period_id"
+    t.datetime "end_period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "color",      :limit => nil
+    t.string   "period"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

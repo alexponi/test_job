@@ -7,7 +7,8 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :user_id
       t.integer :period_id
       t.datetime :end_period
-
+      t.string :period
+      t.string :color
       t.timestamps
     end
   end
