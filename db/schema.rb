@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20121005045104) do
     t.datetime "end_period"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "color",      :limit => nil
+    t.string   "color"
     t.string   "period"
   end
 
