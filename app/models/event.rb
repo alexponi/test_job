@@ -9,7 +9,6 @@ class Event < ActiveRecord::Base
   validates :end_at, :presence => true
   
   after_save :periodical_events
-  # after_save :change_color
 
   def periodical_events
     if period == " "
@@ -33,7 +32,7 @@ class Event < ActiveRecord::Base
                          :user_id => user_id,
                          :start_at => start_at + i.week, 
                          :end_at => end_at + i.week, 
-                         :period_id => period_id,
+                         :period_id => id,
                          :color => color,
                          :end_period => end_period)
       i += 1 
@@ -46,7 +45,7 @@ class Event < ActiveRecord::Base
                          :user_id => user_id,
                          :start_at => start_at + i.month, 
                          :end_at => end_at + i.month, 
-                         :period_id => period_id,
+                         :period_id => id,
                          :color => color,
                          :end_period => end_period)
       i += 1 
@@ -59,7 +58,7 @@ class Event < ActiveRecord::Base
                          :user_id => user_id,
                          :start_at => start_at + i.year, 
                          :end_at => end_at + i.year, 
-                         :period_id => period_id,
+                         :period_id => id,
                          :color => color,
                          :end_period => end_period)
       i += 1 
@@ -67,10 +66,4 @@ class Event < ActiveRecord::Base
       end
     end
   end
-
-  # def change_color
-  #   if self.color == 0
-  #     self.color == "red"
-  #   end
-  # end
-end
+end  

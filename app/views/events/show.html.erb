@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%= @event.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%= @event.end_at %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @event.user_id %>
+</p>
+
+<p>
+  <b>Period:</b>
+  <%= @event.period_id %>
+</p>
+
+<p>
+  <b>End period:</b>
+  <%= @event.end_period %>
+</p>
+
+<p>
+  <b>Period:</b>
+  <%= @event.period %>
+</p>
+
+<h1>Editing event</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Listing events', events_path %> |
+<%= link_to 'My calendar', current_user %>

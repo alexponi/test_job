@@ -4,17 +4,12 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    
+    @events = Event.all
 
-
-
-
-    # @events = Event.all
-
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @events }
-    # end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
   end
 
   # GET /events/1
@@ -81,15 +76,14 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-
+    @event.destroy    
+    
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
-    end
+    end  
   end
 end
-
 
 private
 

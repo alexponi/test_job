@@ -1,0 +1,37 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start at</th>
+    <th>End at</th>
+    <th>User</th>
+    <th>Period</th>
+    <th>End period</th>
+    <th>Period</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.start_at %></td>
+    <td><%= event.end_at %></td>
+    <td><%= event.user_id %></td>
+    <td><%= event.period_id %></td>
+    <td><%= event.end_period %></td>
+    <td><%= event.period %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %> |
+<%= link_to 'My calendar', current_user %>
+

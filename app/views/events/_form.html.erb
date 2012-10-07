@@ -1,0 +1,50 @@
+<div class="center hero-unit">
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br />
+    <%= f.select :period, [[" "],["day"],["week"],["month"],["year"]] %>
+  </div>
+  <div class="field">
+    <%= f.label :start_at %><br />
+    <%= f.datetime_select :start_at %>
+  </div>
+  <div class="field">
+    <%= f.label :end_at %><br />
+    <%= f.datetime_select :end_at %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :period_id %>
+  </div>
+  <div class="field">
+    <%= f.label :color, "Event color"%><br />
+    <%= f.select :color, [["Red","#ff9999"], ["Orange","#ff9933"], ["Yellow","#ffcc00"], ["Green","#99ff33"], ["Blue","#33ffff"], ["Indigo","#3399ff"], ["Violet","#cc99ff"]]%>
+  </div>
+  <div class="field">
+    <%= f.label :end_period %><br />
+    <%= f.datetime_select :end_period %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>
+
+
